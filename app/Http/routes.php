@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -30,8 +26,17 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+// Route::group(['middleware' => 'web'], function () {
+//     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+//     Route::get('/', 'HomeController@index');
+// });
+
+// Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
+//     Route::get('/', 'HomeController@index');    
+// });
+
+Route::group(['middleware' => 'web', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    //Route::auth();
+    Route::get('/', 'HomeController@index');    
 });
