@@ -37,6 +37,11 @@ Route::group(['middleware' => ['web']], function () {
 // });
 
 Route::group(['middleware' => 'web', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
-    //Route::auth();
-    Route::get('/', 'HomeController@index');    
+    //Route::auth();    
+    Route::get('/', 'HomeController@index');
+    //Route::get('article', 'ArticleController@index');
+    Route::resource('article', 'ArticleController');
 });
+Route::get('article/{id}', 'ArticleController@show');  
+
+
