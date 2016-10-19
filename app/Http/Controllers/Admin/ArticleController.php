@@ -63,7 +63,7 @@ class ArticleController extends Controller
         if ($article->save()) {
             return redirect('admin/article');
         } else {
-            return redirect()->back()->withInput()->withErWeb\wardrobe\wardroberors('更新失败！');
+            return redirect()->back()->withInput()->withErrors('更新失败！');
         }
     }
 

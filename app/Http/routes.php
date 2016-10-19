@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
 //     Route::get('/', 'HomeController@index');    
 // });
 
+Route::get('/', 'HomeController@about');
+
 Route::group(['middleware' => 'web', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     //Route::auth();    
     Route::get('/', 'HomeController@index');

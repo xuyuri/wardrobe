@@ -26,4 +26,26 @@ class HomeController extends Controller
     {
         return view('home')->withArticles(\App\Article::all());
     }
+
+    public function about()
+    {
+        //fist method
+        /*return view('site/about')->with([
+            'first' => 'Hello',
+            'last' => 'World',
+        ]);*/
+        //second method
+        $first = 'Hello';
+        $last = 'World';
+        $third = [
+            'who' => 'Laravel',
+            'when' => date('Y-m-d'),
+        ];
+        return view('site/about', compact('first', 'last', 'third'));
+        //third method
+        /*$data = [];
+        $data['first'] = 'Yuri';
+        $data['last'] = 'Xu';
+        return view('site/about', $data);*/
+    }
 }
